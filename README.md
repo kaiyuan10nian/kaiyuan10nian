@@ -277,13 +277,7 @@ uuid"[http://github.com/satori/go.uuid](https://link.zhihu.com/?target=http%3A//
 
 项目在GitHub上的地址：[https://github.com/kaiyuan10nian/GinDemo](https://link.zhihu.com/?target=https%3A//github.com/kaiyuan10nian/GinDemo)
 
-在开始这一节前，希望有兴趣的同学可以先去看下这个开源10年项目前面的故事，虽不会直接提升你的开发能力，但看后确实能了解这个项目的灵魂。
 
-1、[开源10年项目-项目成立，欢迎大家的加入](https://zhuanlan.zhihu.com/p/483008113)
-
-2、[开源10年项目-准备工作，语言的选择和第一阶段的目标](https://zhuanlan.zhihu.com/p/483459598)
-
-3、[开源10年项目-Go项目实战之博客功能开发](https://zhuanlan.zhihu.com/p/483854593)
 
 下面开始我们今天的知识点分享。
 
