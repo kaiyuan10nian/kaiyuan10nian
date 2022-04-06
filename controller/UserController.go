@@ -21,6 +21,9 @@ func Register (ctx *gin.Context) {
 	name := ctx.PostForm("name")
 	mobile := ctx.PostForm("mobile")
 	password := ctx.PostForm("password")
+	fmt.Println("name:"+name)
+	fmt.Println("mobile:"+mobile)
+	fmt.Println("password:"+password)
 	//数据验证
 	if len(mobile) != 11 {
 		response.Response(ctx,http.StatusUnprocessableEntity,422,nil,"手机号必须为11位")
