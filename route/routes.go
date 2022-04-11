@@ -1,4 +1,4 @@
-package main
+package route
 
 import (
 	"github.com/gin-gonic/gin"
@@ -10,5 +10,6 @@ func CollectRoute(r *gin.Engine) *gin.Engine  {
 	r.POST("/v1/account/register", controller.Register)
 	r.POST("/v1/account/login", controller.Login)
 	r.GET("/v1/account/info", common.AuthMiddleware(),controller.Info)
+	r.GET("/v1/account/invite", common.AuthMiddleware(),controller.Invite)
 	return r
 }
