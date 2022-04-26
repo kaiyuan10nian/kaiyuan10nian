@@ -34,6 +34,8 @@ func InitDB() *gorm.DB{
 	db.AutoMigrate(&model.User{})
 	db.AutoMigrate(&model.Article{})
 	db.AutoMigrate(&model.InviteCode{})
+	db.AutoMigrate(&model.Tags{})
+	db.AutoMigrate(&model.TagMapArticle{})
 	DB = db
 	return db
 }
