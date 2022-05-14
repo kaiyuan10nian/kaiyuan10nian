@@ -1,0 +1,4 @@
+time="2022-05-14 10:21:23" level=info msg="| 200 |     142.375µs |             ::1 | GET | /test/hello"
+time="2022-05-14 10:21:23" level=info msg="| 404 |          42ns |             ::1 | GET | /favicon.ico"
+time="2022-05-14 10:21:29" level=info msg="| 200 |      15.209µs |             ::1 | GET | /test/hello"
+{"level":"info","msg":"| 200 |     158.792µs |             ::1 | GET | /test/hello","time":"2022-05-14 10:22:32"}

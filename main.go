@@ -5,8 +5,8 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/spf13/viper"
 	"kaiyuan10nian/common"
+	"kaiyuan10nian/config"
 	"kaiyuan10nian/route"
-	"os"
 )
 
 func main(){
@@ -27,12 +27,12 @@ func InitGin() {
 }
 
 func InitConfig() {
-	workDir, _ := os.Getwd()
+	config.InitLogger()
 	viper.SetConfigName("application")
 	viper.SetConfigType("yml")
-	viper.AddConfigPath(  workDir+ "/config")
+	viper.AddConfigPath("./config/")
 	err := viper.ReadInConfig()
 	if err != nil {
-		panic("")
+		panic(""+err.Error())
 	}
 }
