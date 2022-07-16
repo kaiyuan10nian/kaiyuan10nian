@@ -1,7 +1,6 @@
 package controller
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 	"golang.org/x/crypto/bcrypt"
@@ -93,6 +92,7 @@ func Register (ctx *gin.Context) {
 }
 //登录
 func Login(ctx *gin.Context){
+	ctx.Header("Access-Control-Allow-Origin", "*");
 	DB := common.GetDB()
 	//获取参数
 	mobile := ctx.PostForm("mobile")
@@ -126,7 +126,6 @@ func Login(ctx *gin.Context){
 		return
 	}
 	//返回结果
-	fmt.Println(token)
 	response.Success(ctx,gin.H{"token":token},"登录成功")
 }
 
