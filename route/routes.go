@@ -9,11 +9,11 @@ import (
 
 func CollectRoute(r *gin.Engine) *gin.Engine  {
 	r.Use(config.LoggerToFile())//添加日志记录
-	r.POST("/v1/account/register", controller.Register)
-	r.POST("/v1/account/login", controller.Login)
-	r.GET("/v1/account/info", common.AuthMiddleware(),controller.Info)
-	r.GET("/v1/account/invite", common.AuthMiddleware(),controller.Invite)
-	tagsRoutes := r.Group("/v1/tags")
+	r.POST("/v1/account/register", controller.Register)//注册
+	r.POST("/v1/account/login", controller.Login)//登录
+	r.GET("/v1/account/info", common.AuthMiddleware(),controller.Info)//用户信息
+	r.GET("/v1/account/invite", common.AuthMiddleware(),controller.Invite)//邀请码生成
+	tagsRoutes := r.Group("/v1/tags")//标签
 	tagsRoutes.Use(common.AuthMiddleware())
 	tagController := controller.NewTagController()
 	tagsRoutes.POST("", tagController.Create)
