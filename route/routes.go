@@ -21,6 +21,14 @@ func CollectRoute(r *gin.Engine) *gin.Engine  {
 	tagsRoutes.GET("/:id", tagController.Show)
 	tagsRoutes.DELETE("/:id", tagController.Delete)
 	tagsRoutes.GET("/list", tagController.List)
+	articleRoutes := r.Group("/v1/article")//文章
+	articleRoutes.Use(common.AuthMiddleware())
+	articleController := controller.NewArticleController()
+	articleRoutes.POST("", articleController.Create)
+	articleRoutes.PUT("/:id", articleController.Update) //替换
+	articleRoutes.GET("/:id", articleController.Show)
+	articleRoutes.DELETE("/:id", articleController.Delete)
+	articleRoutes.GET("/list", articleController.List)
 	test := r.Group("/test")
 	{
 		test.GET("/hello", func(context *gin.Context) {
