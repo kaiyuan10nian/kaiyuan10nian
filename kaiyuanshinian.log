@@ -13,3 +13,9 @@
 {"level":"info","msg":"| 200 |    4.832291ms |       127.0.0.1 | POST | /v1/article","time":"2022-09-07 17:45:06"}
 {"level":"info","msg":"| 200 |    3.830625ms |       127.0.0.1 | POST | /v1/article","time":"2022-09-07 17:45:14"}
 {"level":"info","msg":"| 200 |    3.241458ms |       127.0.0.1 | POST | /v1/article","time":"2022-09-07 17:45:25"}
+{"level":"info","msg":"| 401 |      93.458µs |       127.0.0.1 | PUT | /v1/article/1","time":"2022-09-07 18:35:52"}
+{"level":"info","msg":"| 200 |   10.403375ms |       127.0.0.1 | PUT | /v1/article/1","time":"2022-09-07 18:36:12"}
+{"level":"info","msg":"| 200 |      1.7155ms |       127.0.0.1 | GET | /v1/article/1","time":"2022-09-07 18:37:12"}
+{"level":"info","msg":"| 200 |    5.810583ms |       127.0.0.1 | GET | /v1/article/list","time":"2022-09-07 18:38:38"}
+{"level":"info","msg":"| 200 |      3.2485ms |       127.0.0.1 | DELETE | /v1/article/1","time":"2022-09-07 18:38:45"}
+{"level":"info","msg":"| 200 |    2.572875ms |       127.0.0.1 | GET | /v1/article/list","time":"2022-09-07 18:38:50"}
