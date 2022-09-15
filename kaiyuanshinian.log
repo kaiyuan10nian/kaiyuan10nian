@@ -19,3 +19,26 @@
 {"level":"info","msg":"| 200 |    5.810583ms |       127.0.0.1 | GET | /v1/article/list","time":"2022-09-07 18:38:38"}
 {"level":"info","msg":"| 200 |      3.2485ms |       127.0.0.1 | DELETE | /v1/article/1","time":"2022-09-07 18:38:45"}
 {"level":"info","msg":"| 200 |    2.572875ms |       127.0.0.1 | GET | /v1/article/list","time":"2022-09-07 18:38:50"}
+{"level":"info","msg":"| 404 |         167ns |       127.0.0.1 | GET | /v1/test","time":"2022-09-14 16:54:31"}
+{"level":"info","msg":"| 404 |         167ns |       127.0.0.1 | GET | /v1/test/hello","time":"2022-09-14 16:54:47"}
+{"level":"info","msg":"| 200 |  3.381467875s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 16:55:09"}
+{"level":"info","msg":"| 200 |  223.482916ms |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 16:56:25"}
+{"level":"info","msg":"| 200 |   3.21865175s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 16:56:48"}
+{"level":"info","msg":"| 200 | 30.005434042s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 16:58:37"}
+{"level":"info","msg":"| 200 |  3.418856958s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 16:59:05"}
+{"level":"info","msg":"| 200 | 16.973668666s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 17:01:20"}
+{"level":"info","msg":"| 200 |  3.456495791s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 17:02:46"}
+{"level":"info","msg":"| 200 |  280.895625ms |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 17:05:09"}
+{"level":"info","msg":"| 200 | 15.215922959s |       127.0.0.1 | GET | /test/hello","time":"2022-09-14 17:05:27"}
+{"level":"info","msg":"| 404 |         125ns |       127.0.0.1 | POST | /test/hello","time":"2022-09-14 18:19:02"}
+{"level":"info","msg":"| 200 |     840.584µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:19:17"}
+{"level":"error","msg":"mkdir ./kaiyuan10nian: not a directory上传错误false","time":"2022-09-14 18:25:46"}
+{"level":"info","msg":"| 200 |     413.625µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:25:46"}
+{"level":"error","msg":"mkdir ./kaiyuan10nian: not a directory上传错误false","time":"2022-09-14 18:26:39"}
+{"level":"info","msg":"| 200 |     769.833µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:26:39"}
+{"level":"info","msg":"| 200 |    1.090417ms |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:27:09"}
+{"level":"info","msg":"| 200 |      747.75µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:29:33"}
+{"level":"error","msg":"mkdir ./kaiyuan10nian: not a directory上传错误false","time":"2022-09-14 18:30:16"}
+{"level":"info","msg":"| 200 |     464.542µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:30:16"}
+{"level":"info","msg":"| 200 |     814.208µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:30:36"}
+{"level":"info","msg":"| 200 |     726.292µs |       127.0.0.1 | POST | /test/upload","time":"2022-09-14 18:31:11"}
