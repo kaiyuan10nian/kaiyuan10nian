@@ -1,7 +1,6 @@
 package common
 
 import (
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"kaiyuan10nian/model"
 	"net/http"
@@ -19,7 +18,6 @@ func AuthMiddleware() gin.HandlerFunc{
 			ctx.Abort()
 			return
 		}
-		fmt.Println(tokenString)
 		tokenString = tokenString[7:]
 
 		token,claims,err := ParseToken(tokenString)

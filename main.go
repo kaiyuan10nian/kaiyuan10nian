@@ -7,6 +7,7 @@ import (
 	"kaiyuan10nian/common"
 	"kaiyuan10nian/config"
 	"kaiyuan10nian/route"
+	"net/http"
 )
 
 func main(){
@@ -19,6 +20,7 @@ func main(){
 func InitGin() {
 	r := gin.Default()
 	r = route.CollectRoute(r)
+	r.StaticFS("/kaiyuan", http.Dir("/opt/server/nginx-1.18/html/kaiyuan"))
 	port := viper.GetString("server.port")//这里加载配置文件中的端口
 	if port != "" {
 		panic(r.Run(":" + port))
