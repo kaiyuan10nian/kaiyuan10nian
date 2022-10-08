@@ -90,17 +90,23 @@ func (c ArticleController) Show(ctx *gin.Context) {
 }
 //文章列表
 func (c ArticleController) List(ctx *gin.Context) {
-	var articles []model.Article
-	//直接去查询所有文章
-	c.DB.Find(&articles)
+	page,_ := strconv.Atoi(ctx.DefaultQuery("page","1"))
+	size,_ := strconv.Atoi(ctx.DefaultQuery("size","10"))
+
 	var total int
 	c.DB.Model(&model.Article{}).Count(&total)
 	if total == 0 {
 		response.Fail(ctx,"文章不存在,请创建",nil)
 		return
 	}
+	var articles []model.Article
+	offset := (page-1)*size
+	if err := c.DB.Order("id DESC").Offset(offset).Limit(size).Find(&articles).Error;err != nil{
+		response.Fail(ctx,"查询失败",nil)
+		return
+	}
 	//返回结果
-	response.Success(ctx,gin.H{"articles":articles, "total": total},"")
+	response.Success(ctx,gin.H{"articles":articles, "page": page,"total": total},"请求成功")
 	return
 }
 //删除文章

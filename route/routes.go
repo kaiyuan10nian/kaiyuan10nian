@@ -29,7 +29,8 @@ func CollectRoute(r *gin.Engine) *gin.Engine  {
 	articleRoutes.PUT("/:id", articleController.Update) //替换
 	articleRoutes.GET("/:id", articleController.Show)
 	articleRoutes.DELETE("/:id", articleController.Delete)
-	articleRoutes.GET("/list", articleController.List)
+	//articleRoutes.GET("/list", articleController.List)
+	r.GET("/v1/article/list", articleController.List)//邀请码生成
 	test := r.Group("/test")
 	{
 		test.GET("/hello", func(context *gin.Context) {
