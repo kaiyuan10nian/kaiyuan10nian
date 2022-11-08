@@ -9,5 +9,5 @@ type User struct {
 	Name      string `gorm:"type:varchar(20);not null"`
 	Mobile    string `gorm:"varchar(11);not null;unique"`
 	Password  string `gorm:"size:255;not null"`
-	InviteCode string      `json:"invitecode" gorm:"not null"`
+	InviteCode string      `json:"InviteCode" gorm:"not null"`
 }
