@@ -1,9 +1,0 @@
-datasource:
-  driverName: mysql
-  host: 127.0.0.1
-  port: 3306
-  database: project10nian
-  username: root
-  password: dgk5E45%kJFkd~k!@kd
-  charset: utf8
-  loc: Asia/Shanghai
