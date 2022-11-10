@@ -20,7 +20,9 @@
 
 Gin 是 Go语言写的一个 web 框架，它具有运行速度快，分组的路由器，良好的崩溃捕获和错误处理，非常好的支持中间件和 json。总之在 Go语言开发领域是一款值得好好研究的 Web 框架
 
-gin安装：go get -u [http://github.com/gin-gonic/gin](https://link.zhihu.com/?target=http%3A//github.com/gin-gonic/gin)
+gin安装：go get -u [http://github.com/gin-gonic/gin](https://link.zhihu.com/?target=http%3A//github.com/gin-gonic/gin)   //错误示例 多谢@changpingdengdeng的指正
+
+gin安装：go get -u github.com/gin-gonic/gin  //正确示例
 
 本项目中初始化位置：
 
