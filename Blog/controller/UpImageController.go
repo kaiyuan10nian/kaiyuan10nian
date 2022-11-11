@@ -3,8 +3,8 @@ package controller
 import (
 	"errors"
 	"github.com/gin-gonic/gin"
-	"kaiyuan10nian/config"
-	"kaiyuan10nian/response"
+	"kaiyuan10nian/Blog/config"
+	"kaiyuan10nian/Blog/response"
 	"net/http"
 	"os"
 	"path"
@@ -28,7 +28,7 @@ func Uploads(ctx *gin.Context) {
 		if _, ok := allowExtMap[extName]; !ok {
 			config.GetLogger().Error(errors.New("文件类型不合法"), "上传错误", false)
 			// 返回值
-			response.Response(ctx,http.StatusOK,50001,nil,"文件类型不合法")
+			response.Response(ctx, http.StatusOK, 50001, nil, "文件类型不合法")
 			return
 		}
 		//3、创建图片保存目录,linux下需要设置权限（0755可读可写） kaiyuan/upload/image20220915
@@ -37,7 +37,7 @@ func Uploads(ctx *gin.Context) {
 		if err := os.MkdirAll("/opt/server/nginx-1.18/html/kaiyuan/upload/"+currentTime, 0755); err != nil {
 			config.GetLogger().Error(err, "上传错误", false)
 			// 返回值
-			response.Response(ctx,http.StatusOK,50001,nil,"MkdirAll失败")
+			response.Response(ctx, http.StatusOK, 50001, nil, "MkdirAll失败")
 			return
 		}
 		//4、生成文件名称 1663213319130065587.png
@@ -48,13 +48,12 @@ func Uploads(ctx *gin.Context) {
 		if err != nil {
 			config.GetLogger().Error(err, "上传错误", false)
 			// 返回值
-			response.Response(ctx,http.StatusOK,5001,nil,"文件保存失败")
+			response.Response(ctx, http.StatusOK, 5001, nil, "文件保存失败")
 			return
 		}
-		imageurl := strings.Replace(saveDir,"/opt/server/nginx-1.18/html","https://xiaoyin.live",-1)
+		imageurl := strings.Replace(saveDir, "/opt/server/nginx-1.18/html", "https://xiaoyin.live", -1)
 		// 返回值
-		response.Success(ctx,gin.H{"imageurl":imageurl},"上传成功")
+		response.Success(ctx, gin.H{"imageurl": imageurl}, "上传成功")
 		return
 	}
 }
-
