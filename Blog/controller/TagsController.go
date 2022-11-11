@@ -3,10 +3,10 @@ package controller
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
-	"kaiyuan10nian/common"
-	"kaiyuan10nian/model"
-	"kaiyuan10nian/response"
-	"kaiyuan10nian/vo"
+	"kaiyuan10nian/Blog/common"
+	"kaiyuan10nian/Blog/model"
+	"kaiyuan10nian/Blog/response"
+	"kaiyuan10nian/Blog/vo"
 	"net/http"
 	"strconv"
 )
@@ -19,13 +19,12 @@ type TagsController struct {
 	DB *gorm.DB
 }
 
-
-
 func NewTagController() ITagsController {
 	db := common.GetDB()
 
-	return TagsController{DB:db}
+	return TagsController{DB: db}
 }
+
 //创建标签
 func (c TagsController) Create(ctx *gin.Context) {
 	var requestTag vo.CreateTagRequest
@@ -35,15 +34,16 @@ func (c TagsController) Create(ctx *gin.Context) {
 		return
 	}
 	//通过验证后再去数据库表中创建对应记录
-	tag := model.Tags{TagName:requestTag.TagName}
-	if err := c.DB.Create(&tag).Error;err != nil{
-		response.Response(ctx,http.StatusInternalServerError,500,nil,err.Error())
+	tag := model.Tags{TagName: requestTag.TagName}
+	if err := c.DB.Create(&tag).Error; err != nil {
+		response.Response(ctx, http.StatusInternalServerError, 500, nil, err.Error())
 		return
 	}
 	//返回结果
 	response.Success(ctx, gin.H{"tag": tag}, "")
 	return
 }
+
 //更新标签
 func (c TagsController) Update(ctx *gin.Context) {
 	var requestTag vo.CreateTagRequest
@@ -53,35 +53,37 @@ func (c TagsController) Update(ctx *gin.Context) {
 		return
 	}
 
-	tagId,_ := strconv.Atoi(ctx.Params.ByName("id"))
+	tagId, _ := strconv.Atoi(ctx.Params.ByName("id"))
 	//然后查一下要修改的这个标签记录存在不存在
 	var updateTag model.Tags
-	if c.DB.First(&updateTag,tagId).RecordNotFound(){
-		response.Fail(ctx,"标签不存在",nil)
+	if c.DB.First(&updateTag, tagId).RecordNotFound() {
+		response.Fail(ctx, "标签不存在", nil)
 		return
 	}
 	//存在的话就去修改
-	if err := c.DB.Model(&updateTag).Update("tag_name",requestTag.TagName).Error;err != nil{
-		response.Response(ctx,http.StatusInternalServerError,500,nil,err.Error())
+	if err := c.DB.Model(&updateTag).Update("tag_name", requestTag.TagName).Error; err != nil {
+		response.Response(ctx, http.StatusInternalServerError, 500, nil, err.Error())
 		return
 	}
 	//返回修改结果
-	response.Success(ctx,gin.H{"tag":updateTag},"修改成功")
+	response.Success(ctx, gin.H{"tag": updateTag}, "修改成功")
 	return
 }
+
 //标签详情
 func (c TagsController) Show(ctx *gin.Context) {
-	tagId,_ := strconv.Atoi(ctx.Params.ByName("id"))
+	tagId, _ := strconv.Atoi(ctx.Params.ByName("id"))
 	//根据标签ID直接去表中查对应标签
 	var tag model.Tags
-	if c.DB.First(&tag,tagId).RecordNotFound(){
-		response.Fail(ctx,"标签不存在",nil)
+	if c.DB.First(&tag, tagId).RecordNotFound() {
+		response.Fail(ctx, "标签不存在", nil)
 		return
 	}
 	//返回结果
-	response.Success(ctx,gin.H{"tag":tag},"")
+	response.Success(ctx, gin.H{"tag": tag}, "")
 	return
 }
+
 //标签列表
 func (c TagsController) List(ctx *gin.Context) {
 	var tags []model.Tags
@@ -90,22 +92,23 @@ func (c TagsController) List(ctx *gin.Context) {
 	var total int
 	c.DB.Model(&model.Tags{}).Count(&total)
 	if total == 0 {
-		response.Fail(ctx,"标签不存在,请创建",nil)
+		response.Fail(ctx, "标签不存在,请创建", nil)
 		return
 	}
 	//返回结果
-	response.Success(ctx,gin.H{"tags":tags, "total": total},"")
+	response.Success(ctx, gin.H{"tags": tags, "total": total}, "")
 	return
 }
+
 //删除标签
 func (c TagsController) Delete(ctx *gin.Context) {
-	tagId,_ := strconv.Atoi(ctx.Params.ByName("id"))
+	tagId, _ := strconv.Atoi(ctx.Params.ByName("id"))
 
-	if err := c.DB.Delete(model.Tags{},tagId).Error;err != nil{
-		response.Fail(ctx,"删除失败请重试",nil)
+	if err := c.DB.Delete(model.Tags{}, tagId).Error; err != nil {
+		response.Fail(ctx, "删除失败请重试", nil)
 		return
 	}
 
-	response.Success(ctx,nil,"删除成功")
+	response.Success(ctx, nil, "删除成功")
 	return
 }
