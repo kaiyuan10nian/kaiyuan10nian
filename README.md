@@ -4,6 +4,14 @@
 
 ![kaiyuan-logo-qrcode.jpg](https://s2.loli.net/2022/11/09/LT8H4wkiptn59rv.jpg)
 
+
+
+目前有两个开源项目：
+
+1、[Go后端实战 Blog](https://github.com/kaiyuan10nian/Blog)
+
+2、[Go前端实战 fyne](https://github.com/kaiyuan10nian/ToolsBaBa)
+
 #### “开源十年”项目名字的由来
 
 ###### | 2022-11-9更新
@@ -87,12 +95,6 @@ test：测试分支
 develop：开发分支
 
 feature-XX：功能分支
-
-####  项目结构说明
-
--- BLOG  是之前的Go项目实战
-
--- ToolsBaba 程序员工具箱（2022-11-10启动）
 
 #### 贡献者名单
 
